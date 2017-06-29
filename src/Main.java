@@ -51,13 +51,13 @@ public class Main {
 
             int i = 1;  //sets counter to 1
 
-            System.out.println("Number        Squared        Cubed");
-            System.out.println("======        =======       =======");
+            System.out.printf("%8s%16s%16s \n","Number","Squared","Cubed");
+            System.out.printf("%8s%16s%16s \n","======","=======","=======");
 
             while (i <= number) {
                 int squared = squareIt(i);
                 int cubed = cubeIt(i);
-                System.out.printf("%4d%14d%14d \n", i, squared, cubed);
+                System.out.printf("%8d%16d%16d \n", i, squared, cubed);
                 i += 1;
             }
             System.out.print("Continue? Y/N: ");
