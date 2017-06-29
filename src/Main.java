@@ -9,6 +9,23 @@ import java.util.Scanner;
  */
 
 public class Main {
+
+    public static int getNumber() {
+        Scanner scnr = new Scanner(System.in);
+
+        System.out.print("Please enter an integer:  ");
+
+        //verifies that the user entered an integer
+        while (!scnr.hasNextInt()) {
+            System.out.print("I'm sorry, that isn't a valid integer. Please enter an integer: ");
+            scnr.next();
+        }
+
+        int number = scnr.nextInt();
+
+        return number;
+    }
+
     public static int squareIt(int i) {
         double x = Math.pow(i, 2);
         int squared = (int) x;
@@ -22,29 +39,21 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        //variable declaration
         Scanner scnr = new Scanner(System.in);
-        char cont;
+        String cont;
 
         System.out.println("Lab 3 - Powers Table");
 
         do {
-            System.out.print("Please enter an integer:  ");
-
-            //verifies that the user entered an integer
-            while (!scnr.hasNextInt()) {
-                System.out.print("I'm sorry, that isn't a valid integer. Please enter an integer: ");
-                scnr.next();
-            }
+            int number = getNumber();
 
 
-            int number = scnr.nextInt();
-
-            //sets counter to 1
-            int i = 1;
+            int i = 1;  //sets counter to 1
 
             System.out.println("Number        Squared        Cubed");
             System.out.println("======        =======       =======");
+
             while (i <= number) {
                 int squared = squareIt(i);
                 int cubed = cubeIt(i);
@@ -52,9 +61,9 @@ public class Main {
                 i += 1;
             }
             System.out.print("Continue? Y/N: ");
-            cont = scnr.next().charAt(0);
+            cont = scnr.nextLine();
 
-        } while (cont == 'y' || cont == 'Y');
+        } while (cont.equalsIgnoreCase("y"));
 
         System.out.println("Thanks!");
 
