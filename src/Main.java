@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int getNumber() {
+    private static int getNumber() {
         Scanner scnr = new Scanner(System.in);
 
         System.out.print("Please enter an integer:  ");
@@ -26,40 +26,38 @@ public class Main {
         return number;
     }
 
-    public static int squareIt(int i) {
+    private static int squareIt(int i) {
         double x = Math.pow(i, 2);
         int squared = (int) x;
         return squared;
     }
 
-    public static int cubeIt(int i) {
+    private static int cubeIt(int i) {
         double x = Math.pow(i, 3);
         int cubed = (int) x;
         return cubed;
+    }
+
+    private static void CreateTable(){
+            int number = getNumber();
+
+            System.out.printf("%8s%16s%16s \n","Number","Squared","Cubed");
+            System.out.printf("%8s%16s%16s \n","======","=======","=======");
+
+            for (int i = 0; i <= number; i++) {
+                int squared = squareIt(i);
+                int cubed = cubeIt(i);
+                System.out.printf("%8d%16d%16d \n", i, squared, cubed);
+            }
     }
 
     public static void main(String[] args) {
         //variable declaration
         Scanner scnr = new Scanner(System.in);
         String cont;
-
         System.out.println("Lab 3 - Powers Table");
-
         do {
-            int number = getNumber();
-
-
-            int i = 1;  //sets counter to 1
-
-            System.out.printf("%8s%16s%16s \n","Number","Squared","Cubed");
-            System.out.printf("%8s%16s%16s \n","======","=======","=======");
-
-            while (i <= number) {
-                int squared = squareIt(i);
-                int cubed = cubeIt(i);
-                System.out.printf("%8d%16d%16d \n", i, squared, cubed);
-                i += 1;
-            }
+            CreateTable();
             System.out.print("Continue? Y/N: ");
             cont = scnr.nextLine();
 
